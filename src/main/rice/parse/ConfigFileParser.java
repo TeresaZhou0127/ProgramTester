@@ -224,7 +224,7 @@ public class ConfigFileParser {
             case "bool":
                 return new PyBoolNode();
             default:
-                throw new InvalidConfigException(String.format("wrong Python simple type: %s", type));
+                throw new InvalidConfigException(String.format("wrong Python simple type: \"%s\"", type));
         }
     }
 
@@ -341,7 +341,7 @@ public class ConfigFileParser {
                 if(i!=0 && i!=1) throw new InvalidConfigException("wrong boolean domain value");
                 res.add(i);
             } else  {
-                if (i < 0) throw new InvalidConfigException("string domain values should be non-negative");
+                if (i < 0) throw new InvalidConfigException("string domain values should be larger than 0");
                 res.add(i);
             }
         }
